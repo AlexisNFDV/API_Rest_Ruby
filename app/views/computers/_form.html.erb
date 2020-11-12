@@ -1,0 +1,42 @@
+<%= form_with(model: computer, local: true) do |form| %>
+  <% if computer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(computer.errors.count, "error") %> prohibited this computer from being saved:</h2>
+
+      <ul>
+        <% computer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :processor %>
+    <%= form.text_field :processor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :storage %>
+    <%= form.number_field :storage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ram %>
+    <%= form.number_field :ram %>
+  </div>
+
+  <div class="field">
+    <%= form.label :size %>
+    <%= form.number_field :size %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

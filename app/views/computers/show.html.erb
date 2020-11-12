@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @computer.name %>
+</p>
+
+<p>
+  <strong>Processor:</strong>
+  <%= @computer.processor %>
+</p>
+
+<p>
+  <strong>Storage:</strong>
+  <%= @computer.storage %>
+</p>
+
+<p>
+  <strong>Ram:</strong>
+  <%= @computer.ram %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @computer.size %>
+</p>
+
+<%= link_to 'Edit', edit_computer_path(@computer) %> |
+<%= link_to 'Back', computers_path %>
