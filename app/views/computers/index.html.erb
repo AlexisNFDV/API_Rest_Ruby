@@ -23,8 +23,12 @@
         <td><%= computer.ram %></td>
         <td><%= computer.size %></td>
         <td><%= link_to 'Show', computer %></td>
-        <td><%= link_to 'Edit', edit_computer_path(computer) %></td>
-        <td><%= link_to 'Destroy', computer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%if policy(computer).edit?%>
+          <td><%= link_to 'Edit', edit_computer_path(computer) %></td>
+        <%end%>
+        <%if policy(computer).destroy?%>
+          <td><%= link_to 'Destroy', computer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +36,6 @@
 
 <br>
 
-<%= link_to 'New Computer', new_computer_path %>
+<%if policy(Computer).create?%>
+  <%= link_to 'New Computer', new_computer_path %>
+<%end%>

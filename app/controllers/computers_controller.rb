@@ -1,10 +1,12 @@
 class ComputersController < ApplicationController
   before_action :set_computer, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   # GET /computers
   # GET /computers.json
   def index
-    @computers = Computer.all
+    #@computers = Computer.all
+    @computers = policy_scope(Computer).order(created_at: :desc)
   end
 
   # GET /computers/1
@@ -15,6 +17,7 @@ class ComputersController < ApplicationController
   # GET /computers/new
   def new
     @computer = Computer.new
+    authorize(@computer)
   end
 
   # GET /computers/1/edit
@@ -25,6 +28,8 @@ class ComputersController < ApplicationController
   # POST /computers.json
   def create
     @computer = Computer.new(computer_params)
+    @computer.user = current_user
+    authorize(@computer)
 
     respond_to do |format|
       if @computer.save
@@ -65,6 +70,7 @@ class ComputersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_computer
       @computer = Computer.find(params[:id])
+      authorize(@computer)
     end
 
     # Only allow a list of trusted parameters through.
