@@ -1,6 +1,7 @@
 class ComputersController < ApplicationController
   before_action :set_computer, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
+  acts_as_token_authentication_handler_for User, except: [:index, :show]
 
   # GET /computers
   # GET /computers.json

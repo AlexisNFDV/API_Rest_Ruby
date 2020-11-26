@@ -25,5 +25,7 @@
   <%= @computer.size %>
 </p>
 
-<%= link_to 'Edit', edit_computer_path(@computer) %> |
+<%if policy(Computer).create?%>
+  <%= link_to 'Edit', edit_computer_path(@computer) %>
+<%end%>
 <%= link_to 'Back', computers_path %>

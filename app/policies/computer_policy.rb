@@ -10,11 +10,11 @@ class ComputerPolicy < ApplicationPolicy
   end
 
   def show?
-    false
+    true
   end
 
   def create?
-    user.present?
+    present
   end
 
   def new?
@@ -22,16 +22,20 @@ class ComputerPolicy < ApplicationPolicy
   end
 
   def update?
-    return true if user.present? #&& user == computer.user
+     present
   end
  
   def destroy?
-    return true if user.present? #&& user == computer.user
+    present
   end
  
   private
  
     def computer
       record
+    end
+
+    def present
+      return true if user.present? #&& user == computer.user
     end
 end
