@@ -6,40 +6,50 @@
 
 <form action="/show_with_filter">
 
-  <div class="field">
-    <label for="computer_processor">Processor</label>
-    <input type="text" name="computer[processor]" id="computer_processor" />
+
+  <div class="form-group">
+  <label for="computer_processor">Select Processor</label>
+    <select class="form-control" name="computer[processor]" id="computer_processor">
+      <option>intel</option>
+      <option>amd</option>
+      <option>arm</option>
+    </select>
   </div>
 
-  <div class="field">
-    <label for="computer_storage">Storage</label>
-    <input type="number" name="computer[storage]" id="computer_storage" />
+  <div class="form-group">
+  <label for="computer_storage">Select Storage</label>
+    <select class="form-control" name="computer[storage]" id="computer_storage">
+      <option>4</option>
+      <option>8</option>
+      <option>16</option>
+      <option>32</option>
+      <option>64</option>
+    </select>
   </div>
 
-  <div class="field">
-    <label for="computer_ram">Ram</label>
-    <input type="number" name="computer[ram]" id="computer_ram" />
+  <div class="form-group">
+  <label for="computer_ram">Select Ram</label>
+    <select class="form-control" name="computer[ram]" id="computer_ram">
+      <option>4</option>
+      <option>8</option>
+      <option>16</option>
+      <option>32</option>
+      <option>64</option>
+    </select>
   </div>
 
-  <div class="field">
-    <label for="computer_size">Size</label>
-    <input type="number" name="computer[size]" id="computer_size" />
+
+  <div class="form-group">
+  <label for="computer_size">Select Size (screen size)</label>
+    <select class="form-control" name="computer[size]" id="computer_size">
+      <option>11</option>
+      <option>14</option>
+      <option>15</option>
+      <option>16</option>
+      <option>17</option>
+    </select>
   </div>
 
   <button type="submit">Search computer</button>
-
-
-  <form class="form-inline my-2 my-lg-0">
-  <input  class="form-control mr-sm-2"
-    type="search"
-    placeholder="Search"
-    aria-label="Search"
-   />
-   <button 
-     class="btn btn-outline-success my-2 my-sm-0" 
-     type="submit">
-       Search
-   </button>
-</form>
 
 </form>
