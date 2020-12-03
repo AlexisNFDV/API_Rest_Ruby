@@ -12,6 +12,25 @@ class ComputersController < ApplicationController
   def show
   end
 
+  # GET /computers/with_filter
+  # GET /computers/with_filter.json
+  def with_filter
+    @computers = Computer.all
+  end
+
+  # POST /computers/show_with_filter
+  # POST /computers/show_with_filter.json
+  def show_with_filter
+    @computer = Computer.all
+    #params.require(:computer).permit(:processor, :storage, :ram, :size,)
+    #@computers = Computer.all
+
+    @computers = Computer.where(nil)
+    filtering_params(params).each do |key, value|
+      @computers = @computers.public_send("filter_by_#{key}", value) if value.present?
+    end
+  end
+
   # GET /computers/new
   def new
     @computer = Computer.new
@@ -71,4 +90,9 @@ class ComputersController < ApplicationController
     def computer_params
       params.require(:computer).permit(:name, :processor, :storage, :ram, :size)
     end
+
+    # A list of the param names that can be used for filtering the Product list
+  def filtering_params(params)
+    params.slice(:processor, :storage, :ram, :size)
+  end
 end

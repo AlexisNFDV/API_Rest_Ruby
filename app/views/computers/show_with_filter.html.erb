@@ -1,6 +1,7 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Computers</h1>
+
+<h1>Computers show with_filter</h1>
+
 
 <table>
   <thead>
@@ -15,7 +16,7 @@
   </thead>
 
   <tbody>
-    <% @computers.each do |computer| %>
+  <% @computer.each  do |computer| %>
       <tr>
         <td><%= computer.name %></td>
         <td><%= computer.processor %></td>
@@ -30,8 +31,6 @@
   </tbody>
 </table>
 
-
-
 <br>
 
-<%= link_to 'New Computer', new_computer_path %>
+<%= link_to 'New Search', '/with_filter' %>
