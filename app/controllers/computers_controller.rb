@@ -1,7 +1,7 @@
 class ComputersController < ApplicationController
   before_action :set_computer, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show]
-  acts_as_token_authentication_handler_for User, except: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :with_filter, :show_with_filter]
+  acts_as_token_authentication_handler_for User, except: [:index, :show, :with_filter, :show_with_filter]
 
   # GET /computers
   # GET /computers.json
@@ -19,13 +19,15 @@ class ComputersController < ApplicationController
   # GET /computers/with_filter.json
   def with_filter
     @computers = Computer.all
+    authorize(@computers)
   end
 
   # POST /computers/show_with_filter
   # POST /computers/show_with_filter.json
   def show_with_filter
     @computers = Computer.all
-
+    authorize(@computers)
+    
     params[:computer].each do |key,value|
       Rails.logger.warn "Param 12 #{key}: //  #{value}"
       @filter = key

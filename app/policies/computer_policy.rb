@@ -13,6 +13,14 @@ class ComputerPolicy < ApplicationPolicy
     true
   end
 
+  def with_filter?
+    present
+  end
+
+  def show_with_filter?
+    present
+  end
+
   def create?
     present
   end
