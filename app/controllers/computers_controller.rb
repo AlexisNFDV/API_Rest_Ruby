@@ -27,15 +27,17 @@ class ComputersController < ApplicationController
   def show_with_filter
     @computers = Computer.all
     authorize(@computers)
-    
+
     params[:computer].each do |key,value|
       Rails.logger.warn "Param 12 #{key}: //  #{value}"
       @filter = key
       @val    = value
+
       if value != ""
         Rails.logger.warn "add one  #{@filter}:  [:computer][#{value}]"
-        @computers = @computers.where(key: params[@val])
+        @computers = @computers.where("#{key} = ?", value)
       end
+      
       #@computers = @computers.where(processor: params[:computer][:processor])
     end
   end
