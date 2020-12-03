@@ -27,8 +27,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 # Bootstrap i use https://stackoverflow.com/questions/42597050/what-is-the-best-way-to-install-bootstrap-with-rails-app
-gem 'bootstrap-sass'
-
+#gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.5.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
