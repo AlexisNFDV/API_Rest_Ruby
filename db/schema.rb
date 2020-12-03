@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_11_26_161726) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "computers", force: :cascade do |t|
     t.string "name"
     t.string "processor"
@@ -20,17 +23,17 @@ ActiveRecord::Schema.define(version: 2020_11_26_161726) do
     t.integer "size"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_computers_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.string "title"
     t.string "content"
-    t.integer "computer_id", null: false
+    t.bigint "computer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["computer_id"], name: "index_reviews_on_computer_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
