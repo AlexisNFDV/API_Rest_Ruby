@@ -15,6 +15,29 @@ class ComputersController < ApplicationController
   def show
   end
 
+  # GET /computers/with_filter
+  # GET /computers/with_filter.json
+  def with_filter
+    @computers = Computer.all
+  end
+
+  # POST /computers/show_with_filter
+  # POST /computers/show_with_filter.json
+  def show_with_filter
+    @computers = Computer.all
+
+    params[:computer].each do |key,value|
+      Rails.logger.warn "Param 12 #{key}: //  #{value}"
+      @filter = key
+      @val    = value
+      if value != ""
+        Rails.logger.warn "add one  #{@filter}:  [:computer][#{value}]"
+        @computers = @computers.where(key: params[@val])
+      end
+      #@computers = @computers.where(processor: params[:computer][:processor])
+    end
+  end
+
   # GET /computers/new
   def new
     @computer = Computer.new

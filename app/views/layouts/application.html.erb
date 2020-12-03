@@ -2,12 +2,20 @@
 <html>
   <head>
     <title>APIRestRuby</title>
+
+
+
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
   </head>
+
+  
 
   <body>
     <% if user_signed_in?%>
@@ -17,5 +25,12 @@
       <%= link_to "Signed in", new_user_session_path%>
     <%end%>
     <%= yield %>
+
+
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <a class="navbar-brand" href="/">Home</a>
+    <a class="navbar-brand" href="/with_filter">Search</a>
+  </nav>
+    
   </body>
 </html>

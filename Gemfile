@@ -26,6 +26,10 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+# Bootstrap i use https://stackoverflow.com/questions/42597050/what-is-the-best-way-to-install-bootstrap-with-rails-app
+gem 'bootstrap-sass'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

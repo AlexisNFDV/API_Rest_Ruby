@@ -1,6 +1,12 @@
 <h1>Editing Computer</h1>
 
-<%= render 'form', computer: @computer %>
 
-<%= link_to 'Show', @computer %> |
-<%= link_to 'Back', computers_path %>
+
+<div class="container">
+     <div class="col-sm">
+        <%= render 'form', computer: @computer %>
+
+        <%= link_to 'Show', @computer %> |
+        <%= link_to 'Back', computers_path %>
+    </div>
+</div>

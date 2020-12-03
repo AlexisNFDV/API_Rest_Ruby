@@ -1,7 +1,45 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Computers</h1>
+<br>
 
+<div class="container">
+  <div class="col-sm">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" >Name</th>
+          <th scope="col" >Processor</th>
+          <th scope="col" >Storage</th>
+          <th scope="col">Ram</th>
+          <th scope="col" >Size</th>
+          <th scope="col" colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @computers.each do |computer| %>
+          <tr>
+            <td scope="col" ><%= computer.name %></td>
+            <td scope="col" ><%= computer.processor %></td>
+            <td scope="col" ><%= computer.storage %></td>
+            <td scope="col" ><%= computer.ram %></td>
+            <td scope="col" ><%= computer.size %></td>
+            <td scope="col" ><%= link_to 'Show', computer %></td>
+            <td scope="col" ><%= link_to 'Edit', edit_computer_path(computer) %></td>
+            <td scope="col" ><%= link_to 'Destroy', computer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+    <a class="btn btn-primary" href="computers/new" role="button">Create new computer</a>
+  <div/> 
+<div/> 
+
+<<<<<<< HEAD
 <table>
   <thead>
     <tr>
@@ -33,9 +71,13 @@
     <% end %>
   </tbody>
 </table>
+=======
+>>>>>>> origin/jerem
 
-<br>
 
+<<<<<<< HEAD
 <%if policy(Computer).create?%>
   <%= link_to 'New Computer', new_computer_path %>
 <%end%>
+=======
+>>>>>>> origin/jerem
